@@ -1,0 +1,66 @@
+{{!< default}}
+{{#author}}
+<div class="page-header pb-100 pt-75 clearfix">
+    <div class="container">
+        <div class="row">
+           {{#if cover_image}}
+            <div class="col-lg-6 col-sm-6">
+                <div class="headerr-image">
+                    <img src="{{img_url cover_image}}" alt="" />
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-6">
+                <div class="author-text">
+                    <div class="single-author-d">
+                        <div class="title">
+                            <h2>{{name}}</h2>
+                            <p>{{#if bio}}
+                    {{bio}}
+                {{else}}
+                   {{t "A collection of"}}   {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
+                {{/if}}</p>
+                        </div>
+ 
+                    </div>
+                </div>
+            </div>
+            {{else}}
+                <div class="col-sm-6 mx-auto">
+                <div class="author-text">
+                    <div class="single-author-d mx-auto">
+                        <div class="title text-center">
+                            <h2>{{name}}</h2>
+                            <p class="text-center">{{#if bio}}
+                    {{bio}}
+                {{else}}
+                    {{t "A collection of"}}  {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}
+                {{/if}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+{{/author}}
+ 
+<div class="main-content-area clearfix">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 mx-auto">
+            {{#foreach posts visibility="all"}}
+             <div class="blog-list">
+                <div class="list-block block-{{@number}} wow fadeIn" data-wow-duration="2s">
+                    <span>{{date published_at format="DD MMMM Y"}}</span>
+                    <h2><a href="{{url}}">{{title}}</a></h2>
+                      <p>{{excerpt words="25"}}</p>
+                    <div class="btn-read"><a href="{{url}}">{{t "Read More"}}</a></div>
+                </div>
+             </div> 
+            {{/foreach}}
+        </div>
+      </div>
+   </div>
+</div>
+{{pagination}}
