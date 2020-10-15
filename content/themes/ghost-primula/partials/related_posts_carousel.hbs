@@ -1,0 +1,24 @@
+<div class="categories-carousel pb-60 clearfix">
+    <div class="section-title">
+        <h3>{{t "Related Posts"}}</h3>
+    </div>
+    <div class="post-carousel owl-carousel">
+	  {{#get "posts" limit="6" filter="tags:[{{post.tags}}]+id:-{{post.id}}" include="tags" as |related|}}
+       {{#foreach related visibility="all"}}         
+        <div class="single-item">
+            <div class="categories-post-image">
+			 <img class="post-card-image" src="{{img_url feature_image}}"  alt="{{title}}" />
+                <div class="categories-post-hover text-center">
+                    <div class="hover-details">
+                        <div class="post-link">
+                            <h3><a href="{{url}}">{{title}}</a></h3>
+                            <div class="btn-read"><a href="{{url}}">{{t "Read More"}}</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          </div>
+        {{/foreach}}
+       {{/get}}
+    </div>
+</div>

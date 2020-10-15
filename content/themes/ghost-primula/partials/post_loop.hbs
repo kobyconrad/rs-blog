@@ -1,0 +1,23 @@
+{{#foreach posts visibility="all"}}
+  {{#is "home"}} 
+  {{#unless @first}}
+	<div class="blog-list">
+	    <div class="list-block block-{{@index}} wow fadeIn" data-wow-duration="2s">
+	        <span>{{date published_at format="DD MMMM Y"}}</span>
+	        <h2><a href="{{url}}">{{title}}</a></h2>
+	        <p>{{excerpt words="25"}}</p>
+	        <div class="btn-read"><a href="{{url}}">{{t "Read More"}}</a></div>
+	    </div>
+	</div>
+	{{/unless}}
+	{{else}}
+	<div class="blog-list">
+	    <div class="list-block block-{{@index}} wow fadeIn" data-wow-duration="2s">
+	        <span>{{date published_at format="DD MMMM Y"}}</span>
+	        <h2><a href="{{url}}">{{title}}</a></h2>
+	        <p>{{excerpt words="25"}}</p>
+	        <div class="btn-read"><a href="{{url}}">{{t "Read More"}}</a></div>
+	    </div>
+	</div>
+  {{/is}}
+{{/foreach}}

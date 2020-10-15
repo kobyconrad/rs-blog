@@ -1,0 +1,14 @@
+<ul class="nav flex-column">
+ {{#foreach navigation}}
+    <li class="nav-item delay-1"><a class="nav-link" href="{{url absolute='true'}}">{{label}}</a></li>
+ {{/foreach}}
+   {{#if @member}}
+	  <li class="nav-item delay-1 {{#if current}} active {{/if}}"><a href="/account/">{{t "Account"}}</a></li>
+	  <li class="nav-item delay-1"><a href="#signout" data-members-signout>{{t "Log out"}}</a></li>
+	   {{else}}
+	   <li class="nav-item delay-1 {{#if current}} active {{/if}}"><a href="/signin/">{{t "Log in"}}</a></li>
+	{{/if}} 
+</ul>
+
+
+ 

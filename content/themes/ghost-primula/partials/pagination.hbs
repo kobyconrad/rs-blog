@@ -1,0 +1,29 @@
+	<div class="pagination-area mt-5">
+		<div class="container">
+		 <div class="row"> 
+                <div class="col-md-12 mx-auto">
+                    <div class="post-pagination clearfix">
+ <div class="row">
+ <div class="col">
+   {{#if prev}}
+   	  <p><a href="{{page_url prev}}">Previous</a></p>
+   {{/if}}
+ </div>
+  <div class="col text-center">
+   	 <p class="mb-0">Page {{page}} / {{pages}}</p>
+  </div>
+  <div class="col text-right">
+   {{#if next}}
+   	 <p class="mb-0"><a href="{{page_url next}}">Next</a></p>
+   {{/if}}
+ </div>
+ </div>
+                    </div>
+                </div>
+            </div>
+		</div>
+	</div>
+	
+	
+	
+ 
