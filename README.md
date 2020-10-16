@@ -1,12 +1,19 @@
 # rs-blog
 To start ghost:
-```ghost start```
+
+```
+ghost start
+```
 
 To stop ghost:
-```ghost stop```
+```
+ghost stop
+```
 
 You must refresh ghost to see "some" changes (colors, fonts). To refresh ghost:
-```ghost refresh```
+```
+ghost refresh
+```
 
 The theme in production is "ghost-primula" it lives in /content/themes.
 
