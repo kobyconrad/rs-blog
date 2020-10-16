@@ -5,105 +5,110 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 mx-auto">
-              {{#post}}
-			  	   {{#if access}}	
-               <div class="s-post-details {{post_class}} {{#unless feature_image}}no-image{{/unless}}"> 
-		
-                  {{#if feature_image}}
-				   <div class="post-image">
-                    <img src="{{img_url feature_image}}" alt="{{title}}"/>
-                    <div class="post-meta d-flex mb-30">
-                        <p><i class="fa fa-user"></i>{{#primary_author}} <a href="{{url}}">{{name}}</a>  {{/primary_author}}</p>
-                        <p class="ml-40"><i class="fa fa-clock-o"></i>{{date published_at format="DD MMMM, Y"}}</p>
-                    </div>
-                   </div>
-                 {{/if}}
+                {{#post}}
+                {{#if access}}
+                <div class="s-post-details {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
 
-                <div class="entry-content">
-                    {{content}}
-                </div>
+                    {{#if feature_image}}
+                    <div class="post-image">
+                        <img src="{{img_url feature_image}}" alt="{{title}}" />
+                        <div class="post-meta d-flex mb-30">
+                            <p><i class="fa fa-user"></i>{{#primary_author}} <a href="{{url}}">{{name}}</a>
+                                {{/primary_author}}</p>
+                            <p class="ml-40"><i class="fa fa-clock-o"></i>{{date published_at format="DD MMMM, Y"}}</p>
+                        </div>
+                    </div>
+                    {{/if}}
+
+                    <div class="entry-content">
+                        {{content}}
+                    </div>
                     <div class="inner-padding fullwidth  pb-60">
                         <div class="post-share-icon clearfix">
                             <div class="tag-list">
-								<div class="row">
-									<div class="col-md-8">
-                                <p class="float-left pr-2"><strong>Tags :</strong></p> 
-                                <ul>
-                                    {{#foreach tags}}
-                                     <li class="post-tag-item tag tag-{{id}} {{slug}}"><a href="{{url}}">#{{name}}</a></li>
-                                    {{/foreach}}
-                                </ul>									
-									</div>
-									<div class="col-md-4">
-                                <div class="share link-right float-right d-none d-sm-block">
-                                    {{> "social_share"}}
-                                </div>									
-									</div>
-								</div>
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <p class="float-left pr-2"><strong>Tags :</strong></p>
+                                        <ul>
+                                            {{#foreach tags}}
+                                            <li class="post-tag-item tag tag-{{id}} {{slug}}"><a
+                                                    href="{{url}}">#{{name}}</a></li>
+                                            {{/foreach}}
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="share link-right float-right d-none d-sm-block">
+                                            {{> "social_share"}}
+                                        </div>
+                                    </div>
+                                </div>
 
 
                             </div>
                         </div>
-                    </div>				
-                <div class="author-bio grey-bg mb-60">
-                   {{#primary_author}}                    
-					{{#if profile_image}}
-                    <div class="author-img px-0">
-                        <a href="{{url}}"><img src="{{img_url profile_image}}" alt="{{name}}"/></a>
                     </div>
-                                {{/if}}					
-					
-                    <div class="author-details py-3 px-3">
-                        <div class="pot-page-a">
-                            <div class="author-name">
-                                <h3><a href="{{url}}">{{name}}</a></h3>
-                            </div>
-                            <p>{{bio}}</p>
-                            <div class="social-link">
-                                <ul>
-                                    <li><a href="{{facebook_url}}"><i class="fa fa-facebook-f"></i></a></li>
-                                    <li><a href="{{twitter_url}}"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="{{website}}"><i class="fa fa-globe"></i></a></li>
-                                </ul>
+                    <div class="author-bio grey-bg mb-60">
+                        {{#primary_author}}
+                        {{#if profile_image}}
+                        <div class="author-img px-0">
+                            <a href="{{url}}"><img src="{{img_url profile_image}}" alt="{{name}}" /></a>
+                        </div>
+                        {{/if}}
+
+                        <div class="author-details py-3 px-3">
+                            <div class="pot-page-a">
+                                <div class="author-name">
+                                    <h3><a href="{{url}}">{{name}}</a></h3>
+                                </div>
+                                <p>{{bio}}</p>
+                                <div class="social-link">
+                                    <ul>
+                                        <li><a href="{{facebook_url}}"><i class="fa fa-facebook-f"></i></a></li>
+                                        <li><a href="{{twitter_url}}"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="{{website}}"><i class="fa fa-globe"></i></a></li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+                        {{/primary_author}}
                     </div>
-                   {{/primary_author}}
                 </div>
-				</div>
-				{{else}}
-<section class="post-full-content container mb-5">
-   <div class="post-content">
-      <p>You don't have access to this post on <strong>{{@site.title}}</strong> at the moment, but if you upgrade your account you'll be able to see the whole thing, as well as all the other posts in the archive! Subscribing only takes a few seconds and will give you immediate access.</p>
-   </div>
-   <aside class="post-upgrade-cta mt-3">
-      <div class="post-upgrade-cta-content">
-         {{#if @member}}
-         <h2>This post is for paying subscribers only</h2>
-         {{else}}
-         <h2>This post is for subscribers only</h2>
-         {{/if}}
-         <a class="button large primary" href="/signup/">Subscribe now</a>
-         <p><small>Already have an account? <a href="/signin/">Sign in</a></small></p>
-      </div>
-   </aside>
-</section>
-{{/if}}		
-				
-				{{/post}}
+                {{else}}
+                <section class="post-full-content container mb-5">
+                    <div class="post-content">
+                        <p>You don't have access to this post on <strong>{{@site.title}}</strong> at the moment, but if
+                            you upgrade your account you'll be able to see the whole thing, as well as all the other
+                            posts in the archive! Subscribing only takes a few seconds and will give you immediate
+                            access.</p>
+                    </div>
+                    <aside class="post-upgrade-cta mt-3">
+                        <div class="post-upgrade-cta-content">
+                            {{#if @member}}
+                            <h2>This post is for paying subscribers only</h2>
+                            {{else}}
+                            <h2>This post is for subscribers only</h2>
+                            {{/if}}
+                            <a class="button large primary" href="/signup/">Subscribe now</a>
+                            <p><small>Already have an account? <a href="/signin/">Sign in</a></small></p>
+                        </div>
+                    </aside>
+                </section>
+                {{/if}}
+
+                {{/post}}
                 {{> "related_posts_carousel"}}
                 <div class="comments-area pb-60 clearfix">
                     <div class="container">
                         <div class="row">
                             <div class="col-lg-12">
-                              {{> "disqus_comments"}}
+                                {{!-- {{> "disqus_comments"}} --}}
                             </div>
                         </div>
                     </div>
                 </div>
-              
-	  
-			  
+
+
+
             </div>
         </div>
     </div>

@@ -44,10 +44,10 @@
                   </div>
                </div>
             </div>
-			 <div class="col-lg-2 col-md-6">
+            <div class="col-lg-2 col-md-6">
                <div class="footer-widget">
                   <div class="widget-title">
-                     <h4>{{t "Quick Links"}}</h4>
+                     {{!-- <h4>{{t "Quick Links"}}</h4> --}}
                   </div>
                   <div class="widget-text">
                      <div class="widget-link">
@@ -64,11 +64,42 @@
             </div>
             <div class="col-lg-4 col-md-6">
                <div class="footer-widget">
-                  <div class="widget-title">
+                  {{!-- <div class="widget-title">
                      <h4>{{t "Subscribe Us"}}</h4>
-                  </div>
+                  </div> --}}
                   <div class="widget-text subscribe-form">
-                     <section class="subscribe-form">
+                     <!-- Begin Mailchimp Signup Form -->
+                     <link href="//cdn-images.mailchimp.com/embedcode/slim-10_7.css" rel="stylesheet" type="text/css">
+                     <style type="text/css">
+                        #mc_embed_signup {
+                           background: #fff;
+                           clear: left;
+                           font: 14px Helvetica, Arial, sans-serif;
+                        }
+
+                        /* Add your own Mailchimp form style overrides in your site stylesheet or in this style block.
+	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+                     </style>
+                     <div id="mc_embed_signup">
+                        <form
+                           action="https://dev.us4.list-manage.com/subscribe/post?u=901c5f40e63aeb40c9db4f885&amp;id=93f60098d1"
+                           method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form"
+                           class="validate" target="_blank" novalidate>
+                           <div id="mc_embed_signup_scroll">
+                              <label for="mce-EMAIL">Subscribe To Our Blog</label>
+                              <input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL"
+                                 placeholder="email address" required>
+                              <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                              <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text"
+                                    name="b_901c5f40e63aeb40c9db4f885_93f60098d1" tabindex="-1" value=""></div>
+                              <div class="clear"><input type="submit" value="Subscribe" name="subscribe"
+                                    id="mc-embedded-subscribe" class="button"></div>
+                           </div>
+                        </form>
+                     </div>
+
+                     <!--End mc_embed_signup-->
+                     {{!-- <section class="subscribe-form">
                         {{#if @labs.members}}
                         <div class="subscribe-form">
                            <p class="subscription-description">
@@ -76,26 +107,32 @@
                            </p>
                            <form data-members-form="subscribe">
                               <div class="form-group">
-                                 <input class="subscribe-email form-control" data-members-email placeholder="{{t "Your Email"}}" autocomplete="false" />
+                                 <input class="subscribe-email form-control" data-members-email
+                                    placeholder="{{t "Your Email"}}" autocomplete="false" />
                                  <button class="button primary" type="submit">
                                     <span class="button-content">{{t "Subscribe"}}</span>
                                     <span class="button-loader">
-                                       <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
-                                          y="0px" width="40px" height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40" xml:space="preserve">
-                                          <path opacity="0.2" fill="#000" d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
+                                       <svg version="1.1" id="loader-1" xmlns="http://www.w3.org/2000/svg"
+                                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="40px"
+                                          height="40px" viewBox="0 0 40 40" enable-background="new 0 0 40 40"
+                                          xml:space="preserve">
+                                          <path opacity="0.2" fill="#000"
+                                             d="M20.201,5.169c-8.254,0-14.946,6.692-14.946,14.946c0,8.255,6.692,14.946,14.946,14.946
                                              s14.946-6.691,14.946-14.946C35.146,11.861,28.455,5.169,20.201,5.169z M20.201,31.749c-6.425,0-11.634-5.208-11.634-11.634
                                              c0-6.425,5.209-11.634,11.634-11.634c6.425,0,11.633,5.209,11.633,11.634C31.834,26.541,26.626,31.749,20.201,31.749z" />
                                           <path fill="#000" d="M26.013,10.047l1.654-2.866c-2.198-1.272-4.743-2.012-7.466-2.012h0v3.312h0
                                              C22.32,8.481,24.301,9.057,26.013,10.047z">
-                                             <animateTransform attributeType="xml" attributeName="transform" type="rotate" from="0 20 20" to="360 20 20"
-                                                dur="0.5s" repeatCount="indefinite" />
+                                             <animateTransform attributeType="xml" attributeName="transform"
+                                                type="rotate" from="0 20 20" to="360 20 20" dur="0.5s"
+                                                repeatCount="indefinite" />
                                           </path>
                                        </svg>
                                     </span>
                                  </button>
                               </div>
                               <div class="message-success">
-                                 <strong>{{t "Great!"}}</strong> {{t "Check your inbox and click the link to confirm your subscription."}}
+                                 <strong>{{t "Great!"}}</strong>
+                                 {{t "Check your inbox and click the link to confirm your subscription."}}
                               </div>
                               <div class="message-error">
                                  {{t "Please enter a valid email address!"}}
@@ -108,12 +145,14 @@
                               {{t "Stay up to date! Get all the latest posts delivered straight to your inbox."}}
                            </p>
                            <form action="#" class="subscribe-form mailchimp_subscribe" method="post">
-                              <input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL" placeholder="{{t "Your Email"}}">
-                              <button type="submit" name="subscribe" id="mc-embedded-subscribe"  class="buttonfx curtainup">{{t "Subscribe"}}</button>
+                              <input type="email" value="" name="EMAIL" class="required email form-control"
+                                 id="mce-EMAIL" placeholder="{{t "Your Email"}}">
+                              <button type="submit" name="subscribe" id="mc-embedded-subscribe"
+                                 class="buttonfx curtainup">{{t "Subscribe"}}</button>
                            </form>
                         </div>
                         {{/if}}
-                     </section>
+                     </section> --}}
                   </div>
                </div>
             </div>
@@ -121,8 +160,7 @@
          <div class="row">
             <div class="col">
                <div class="footer-text  pt-75 text-center">
-                  <p class="small"> &copy; {{date format="YYYY"}} {{@site.title}} | 
-                     <span>{{t "Developed by"}} <a target="_blank" href="https://themeix.com">{{t "Themeix"}}</a> &amp; {{t "Published with"}} <a target="_blank" href="https://ghost.org">{{t "Ghost"}}</a></span>
+                  <p class="small"> &copy; {{date format="YYYY"}} {{@site.title}}
                   </p>
                </div>
             </div>
